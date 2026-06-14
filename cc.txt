@@ -1,0 +1,15 @@
+// cc.txt - C# program that creates a new file on disk
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Target path from first arg or default file name in current dir
+        string target = args.Length > 0 ? args[0] : "created-by-cc.txt";
+        string content = "This file was created by a C# program stored in cc.txt.";
+        File.WriteAllText(target, content);
+        Console.WriteLine($"Created: {Path.GetFullPath(target)}");
+    }
+}
